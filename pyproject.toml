@@ -1,0 +1,20 @@
+[project]
+name = "my-vocab-az"
+version = "1.0.0"
+description = "日・中・英対応、モンドリアンデザインのA-Z英単語帳ネイティブアプリ"
+requires-python = ">=3.10"
+dependencies = [
+  "flet>=1.1.0",
+]
+
+[tool.flet]
+org = "com.myvocab"
+product = "英単語A-Z"
+company = "MyVocab"
+
+[tool.flet.app]
+path = "src"
+
+[tool.flet.splash]
+color = "#FAF8F2"
+dark_color = "#FAF8F2"
