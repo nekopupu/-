@@ -335,10 +335,10 @@ def main(page: ft.Page):
         return ft.Container(
             content=ft.Row(row_items, alignment=ft.MainAxisAlignment.CENTER, spacing=5),
             bgcolor=bg,
-            border=ft.border.all(2, INK),
+            border=ft.Border.all(2, INK),
             border_radius=0,
             height=height,
-            padding=ft.padding.symmetric(horizontal=10),
+            padding=ft.Padding.symmetric(horizontal=10),
             on_click=on_click,
             expand=expand,
             ink=True,
@@ -347,7 +347,7 @@ def main(page: ft.Page):
     # 動的UI参照
     word_count_text = ft.Text("0", size=20, weight=ft.FontWeight.W_900, color=INK)
     az_row = ft.Row(spacing=0, scroll=ft.ScrollMode.AUTO)
-    list_view = ft.ListView(expand=True, spacing=12, padding=ft.padding.only(left=12, right=12, top=10, bottom=90))
+    list_view = ft.ListView(expand=True, spacing=12, padding=ft.Padding.only(left=12, right=12, top=10, bottom=90))
 
     # ==========================================
     # 詳細モーダル（単語カードタップ時）
@@ -362,7 +362,7 @@ def main(page: ft.Page):
                 ft.Container(
                     content=ft.Text(w["partOfSpeech"], size=11, weight=ft.FontWeight.W_900, color=WHITE),
                     bgcolor=INK,
-                    padding=ft.padding.symmetric(horizontal=7, vertical=2),
+                    padding=ft.Padding.symmetric(horizontal=7, vertical=2),
                 )
             )
         if w.get("phonetic"):
@@ -375,8 +375,8 @@ def main(page: ft.Page):
                 ft.Container(
                     content=ft.Text(f"活用・変化: {w['inflections']}", size=12, color=INK, weight=ft.FontWeight.W_600),
                     bgcolor=CANVAS,
-                    border=ft.border.all(1.5, INK),
-                    padding=ft.padding.symmetric(horizontal=8, vertical=4),
+                    border=ft.Border.all(1.5, INK),
+                    padding=ft.Padding.symmetric(horizontal=8, vertical=4),
                 )
             )
 
@@ -389,8 +389,8 @@ def main(page: ft.Page):
                         ft.Container(
                             content=ft.Text("日", size=10, weight=ft.FontWeight.W_900, color=WHITE),
                             bgcolor=MRED,
-                            border=ft.border.all(1.5, INK),
-                            padding=ft.padding.symmetric(horizontal=5, vertical=1),
+                            border=ft.Border.all(1.5, INK),
+                            padding=ft.Padding.symmetric(horizontal=5, vertical=1),
                         ),
                         ft.Text(w["meaning_ja"], size=14, weight=ft.FontWeight.W_800, color=INK, expand=True),
                     ],
@@ -405,8 +405,8 @@ def main(page: ft.Page):
                         ft.Container(
                             content=ft.Text("中", size=10, weight=ft.FontWeight.W_900, color=WHITE),
                             bgcolor=MBLUE,
-                            border=ft.border.all(1.5, INK),
-                            padding=ft.padding.symmetric(horizontal=5, vertical=1),
+                            border=ft.Border.all(1.5, INK),
+                            padding=ft.Padding.symmetric(horizontal=5, vertical=1),
                         ),
                         ft.Text(w["meaning_zh"], size=13, weight=ft.FontWeight.W_600, color=INK, expand=True),
                     ],
@@ -419,7 +419,7 @@ def main(page: ft.Page):
                 ft.Container(
                     content=ft.Column(meaning_rows, spacing=6),
                     bgcolor=CANVAS,
-                    border=ft.border.all(2, INK),
+                    border=ft.Border.all(2, INK),
                     padding=10,
                 )
             )
@@ -431,8 +431,8 @@ def main(page: ft.Page):
                 ft.Container(
                     content=ft.Text("例文・使い方", size=11, weight=ft.FontWeight.W_900, color=INK),
                     bgcolor=MYELLOW,
-                    border=ft.border.all(1.5, INK),
-                    padding=ft.padding.symmetric(horizontal=8, vertical=2),
+                    border=ft.Border.all(1.5, INK),
+                    padding=ft.Padding.symmetric(horizontal=8, vertical=2),
                 )
             )
             for ex in examples:
@@ -446,8 +446,8 @@ def main(page: ft.Page):
                 body_controls.append(
                     ft.Container(
                         content=ft.Column(ex_lines, spacing=3),
-                        border=ft.border.only(left=ft.BorderSide(4, INK)),
-                        padding=ft.padding.only(left=10, top=4, bottom=4),
+                        border=ft.Border.only(left=ft.BorderSide(4, INK)),
+                        padding=ft.Padding.only(left=10, top=4, bottom=4),
                     )
                 )
 
@@ -458,8 +458,8 @@ def main(page: ft.Page):
                 ft.Container(
                     content=ft.Text("形が似ている語（混同注意）", size=11, weight=ft.FontWeight.W_900, color=WHITE),
                     bgcolor=MRED,
-                    border=ft.border.all(1.5, INK),
-                    padding=ft.padding.symmetric(horizontal=8, vertical=2),
+                    border=ft.Border.all(1.5, INK),
+                    padding=ft.Padding.symmetric(horizontal=8, vertical=2),
                 )
             )
             for s in sim_form:
@@ -480,7 +480,7 @@ def main(page: ft.Page):
                     ft.Container(
                         content=ft.Column(s_lines, spacing=2),
                         bgcolor=CANVAS,
-                        border=ft.border.all(1.5, INK),
+                        border=ft.Border.all(1.5, INK),
                         padding=8,
                     )
                 )
@@ -492,8 +492,8 @@ def main(page: ft.Page):
                 ft.Container(
                     content=ft.Text("意味が似ている語（類義語）", size=11, weight=ft.FontWeight.W_900, color=WHITE),
                     bgcolor=MBLUE,
-                    border=ft.border.all(1.5, INK),
-                    padding=ft.padding.symmetric(horizontal=8, vertical=2),
+                    border=ft.Border.all(1.5, INK),
+                    padding=ft.Padding.symmetric(horizontal=8, vertical=2),
                 )
             )
             for s in sim_mean:
@@ -514,7 +514,7 @@ def main(page: ft.Page):
                     ft.Container(
                         content=ft.Column(s_lines, spacing=2),
                         bgcolor=CANVAS,
-                        border=ft.border.all(1.5, INK),
+                        border=ft.Border.all(1.5, INK),
                         padding=8,
                     )
                 )
@@ -804,8 +804,8 @@ def main(page: ft.Page):
                 ft.Container(
                     content=ft.Text(w["partOfSpeech"], size=10, weight=ft.FontWeight.W_900, color=INK),
                     bgcolor=MYELLOW,
-                    border=ft.border.all(1.5, INK),
-                    padding=ft.padding.symmetric(horizontal=6, vertical=1),
+                    border=ft.Border.all(1.5, INK),
+                    padding=ft.Padding.symmetric(horizontal=6, vertical=1),
                 )
             )
 
@@ -821,8 +821,8 @@ def main(page: ft.Page):
                         ft.Container(
                             content=ft.Text("日", size=10, weight=ft.FontWeight.W_900, color=WHITE),
                             bgcolor=MRED,
-                            border=ft.border.all(1.5, INK),
-                            padding=ft.padding.symmetric(horizontal=4, vertical=1),
+                            border=ft.Border.all(1.5, INK),
+                            padding=ft.Padding.symmetric(horizontal=4, vertical=1),
                         ),
                         ft.Text(w["meaning_ja"], size=13, weight=ft.FontWeight.W_800, color=INK, expand=True),
                     ],
@@ -837,8 +837,8 @@ def main(page: ft.Page):
                         ft.Container(
                             content=ft.Text("中", size=10, weight=ft.FontWeight.W_900, color=WHITE),
                             bgcolor=MBLUE,
-                            border=ft.border.all(1.5, INK),
-                            padding=ft.padding.symmetric(horizontal=4, vertical=1),
+                            border=ft.Border.all(1.5, INK),
+                            padding=ft.Padding.symmetric(horizontal=4, vertical=1),
                         ),
                         ft.Text(w["meaning_zh"], size=12, color=MUTED, expand=True),
                     ],
@@ -851,13 +851,13 @@ def main(page: ft.Page):
             [
                 ft.Container(
                     content=ft.Column(top_col, spacing=3),
-                    padding=ft.padding.symmetric(horizontal=12, vertical=10),
-                    border=ft.border.only(bottom=ft.BorderSide(2, INK)),
+                    padding=ft.Padding.symmetric(horizontal=12, vertical=10),
+                    border=ft.Border.only(bottom=ft.BorderSide(2, INK)),
                 ),
                 ft.Container(
                     content=ft.Column(meaning_col, spacing=5),
-                    padding=ft.padding.symmetric(horizontal=12, vertical=9),
-                    border=ft.border.only(bottom=ft.BorderSide(1.5, INK)),
+                    padding=ft.Padding.symmetric(horizontal=12, vertical=9),
+                    border=ft.Border.only(bottom=ft.BorderSide(1.5, INK)),
                     bgcolor=WHITE,
                 ),
                 ft.Container(
@@ -868,7 +868,7 @@ def main(page: ft.Page):
                         ],
                         alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
                     ),
-                    padding=ft.padding.symmetric(horizontal=12, vertical=7),
+                    padding=ft.Padding.symmetric(horizontal=12, vertical=7),
                     bgcolor=CANVAS,
                 ),
             ],
@@ -879,14 +879,14 @@ def main(page: ft.Page):
         return ft.Container(
             content=ft.Row(
                 [
-                    ft.Container(width=8, bgcolor=stripe_color, border=ft.border.only(right=ft.BorderSide(2, INK))),
+                    ft.Container(width=8, bgcolor=stripe_color, border=ft.Border.only(right=ft.BorderSide(2, INK))),
                     card_content,
                 ],
                 spacing=0,
                 vertical_alignment=ft.CrossAxisAlignment.STRETCH,
             ),
             bgcolor=WHITE,
-            border=ft.border.all(2.5, INK),
+            border=ft.Border.all(2.5, INK),
             border_radius=0,
             shadow=ft.BoxShadow(spread_radius=0, blur_radius=0, color=INK, offset=ft.Offset(4, 4)),
             on_click=lambda _, item=w: open_detail_dialog(item),
@@ -913,8 +913,8 @@ def main(page: ft.Page):
                 ft.Container(
                     content=ft.Text(l, size=12, weight=ft.FontWeight.W_900, color=fg),
                     bgcolor=bg,
-                    border=ft.border.only(right=ft.BorderSide(2, INK)),
-                    padding=ft.padding.symmetric(horizontal=13, vertical=8),
+                    border=ft.Border.only(right=ft.BorderSide(2, INK)),
+                    padding=ft.Padding.symmetric(horizontal=13, vertical=8),
                     on_click=lambda _, ch=l: on_select_letter(ch),
                     ink=True,
                 )
@@ -956,7 +956,7 @@ def main(page: ft.Page):
                         spacing=6,
                     ),
                     bgcolor=WHITE,
-                    border=ft.border.all(2.5, INK),
+                    border=ft.Border.all(2.5, INK),
                     padding=24,
                 )
             )
@@ -980,25 +980,25 @@ def main(page: ft.Page):
                                     width=36,
                                     height=32,
                                     alignment=ft.Alignment.CENTER,
-                                    border=ft.border.only(right=ft.BorderSide(2, INK)),
+                                    border=ft.Border.only(right=ft.BorderSide(2, INK)),
                                 ),
                                 ft.Container(
                                     content=ft.Text(f"INDEX / {letter}", size=11, weight=ft.FontWeight.W_900, color=INK),
-                                    padding=ft.padding.only(left=10),
+                                    padding=ft.Padding.only(left=10),
                                     expand=True,
                                 ),
                                 ft.Container(
                                     content=ft.Text(f"{len(items)}件", size=11, weight=ft.FontWeight.W_800, color=INK),
-                                    border=ft.border.all(1.5, INK),
-                                    padding=ft.padding.symmetric(horizontal=7, vertical=2),
-                                    margin=ft.margin.only(right=8),
+                                    border=ft.Border.all(1.5, INK),
+                                    padding=ft.Padding.symmetric(horizontal=7, vertical=2),
+                                    margin=ft.Margin.only(right=8),
                                 ),
                             ],
                             spacing=0,
                             vertical_alignment=ft.CrossAxisAlignment.CENTER,
                         ),
                         bgcolor=WHITE,
-                        border=ft.border.all(2.5, INK),
+                        border=ft.Border.all(2.5, INK),
                     )
                 )
                 for item in items:
@@ -1019,32 +1019,32 @@ def main(page: ft.Page):
         border=ft.InputBorder.NONE,
         bgcolor=WHITE,
         text_size=13,
-        content_padding=ft.padding.symmetric(horizontal=10, vertical=8),
+        content_padding=ft.Padding.symmetric(horizontal=10, vertical=8),
         on_change=on_search_change,
         expand=True,
     )
 
     header = ft.Container(
         bgcolor=CANVAS,
-        border=ft.border.only(bottom=ft.BorderSide(3, INK)),
+        border=ft.Border.only(bottom=ft.BorderSide(3, INK)),
         content=ft.Column(
             [
                 # 上段：De Stijl 非対称グリッド
                 ft.Container(
-                    border=ft.border.only(bottom=ft.BorderSide(3, INK)),
+                    border=ft.Border.only(bottom=ft.BorderSide(3, INK)),
                     content=ft.Row(
                         [
                             # 左：赤ブロック（タイトル）
                             ft.Container(
                                 expand=6,
                                 bgcolor=MRED,
-                                border=ft.border.only(right=ft.BorderSide(3, INK)),
-                                padding=ft.padding.symmetric(horizontal=12, vertical=10),
+                                border=ft.Border.only(right=ft.BorderSide(3, INK)),
+                                padding=ft.Padding.symmetric(horizontal=12, vertical=10),
                                 content=ft.Column(
                                     [
                                         ft.Row(
                                             [
-                                                ft.Container(width=10, height=10, bgcolor=MYELLOW, border=ft.border.all(1.5, INK)),
+                                                ft.Container(width=10, height=10, bgcolor=MYELLOW, border=ft.Border.all(1.5, INK)),
                                                 ft.Text("DE STIJL DICT", size=9, weight=ft.FontWeight.W_900, color=WHITE),
                                             ],
                                             spacing=6,
@@ -1065,11 +1065,11 @@ def main(page: ft.Page):
                                                 ft.Container(
                                                     expand=1,
                                                     bgcolor=MYELLOW,
-                                                    border=ft.border.only(
+                                                    border=ft.Border.only(
                                                         right=ft.BorderSide(2.5, INK),
                                                         bottom=ft.BorderSide(2.5, INK),
                                                     ),
-                                                    padding=ft.padding.symmetric(vertical=4),
+                                                    padding=ft.Padding.symmetric(vertical=4),
                                                     content=ft.Column(
                                                         [
                                                             word_count_text,
@@ -1082,8 +1082,8 @@ def main(page: ft.Page):
                                                 ft.Container(
                                                     expand=1,
                                                     bgcolor=WHITE,
-                                                    border=ft.border.only(bottom=ft.BorderSide(2.5, INK)),
-                                                    padding=ft.padding.symmetric(vertical=6),
+                                                    border=ft.Border.only(bottom=ft.BorderSide(2.5, INK)),
+                                                    padding=ft.Padding.symmetric(vertical=6),
                                                     on_click=open_backup_dialog,
                                                     ink=True,
                                                     content=ft.Column(
@@ -1100,7 +1100,7 @@ def main(page: ft.Page):
                                         ),
                                         ft.Container(
                                             bgcolor=MBLUE,
-                                            padding=ft.padding.symmetric(vertical=10),
+                                            padding=ft.Padding.symmetric(vertical=10),
                                             on_click=open_json_paste_dialog,
                                             ink=True,
                                             content=ft.Row(
@@ -1124,7 +1124,7 @@ def main(page: ft.Page):
                 # 検索バー
                 ft.Container(
                     bgcolor=WHITE,
-                    border=ft.border.only(bottom=ft.BorderSide(2.5, INK)),
+                    border=ft.Border.only(bottom=ft.BorderSide(2.5, INK)),
                     content=ft.Row(
                         [
                             ft.Container(
@@ -1132,7 +1132,7 @@ def main(page: ft.Page):
                                 width=40,
                                 height=40,
                                 alignment=ft.Alignment.CENTER,
-                                border=ft.border.only(right=ft.BorderSide(2, INK)),
+                                border=ft.Border.only(right=ft.BorderSide(2, INK)),
                             ),
                             search_field,
                         ],
@@ -1151,9 +1151,9 @@ def main(page: ft.Page):
         right=14,
         bottom=18,
         bgcolor=MRED,
-        border=ft.border.all(2.5, INK),
+        border=ft.Border.all(2.5, INK),
         shadow=ft.BoxShadow(spread_radius=0, blur_radius=0, color=INK, offset=ft.Offset(4, 4)),
-        padding=ft.padding.symmetric(horizontal=16, vertical=11),
+        padding=ft.Padding.symmetric(horizontal=16, vertical=11),
         on_click=lambda _: open_edit_dialog(None),
         ink=True,
         content=ft.Row(
